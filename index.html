@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,13 +7,20 @@
   <style>
     body { font-family: Arial, sans-serif; background:#0b0b0b; color:#fff; margin:0; padding:0; }
     header { background:#111; padding:20px; text-align:center; }
-    header h1 { color:#00ffcc; }
+    header h1 { color:#0ff0cc; }
     nav { text-align:center; margin:20px 0; }
-    nav a { color:#00ffcc; margin:0 15px; text-decoration:none; font-weight:bold; }
-    section { padding:20px; max-width:800px; margin:auto; }
-    .card { background:#1a1a1a; padding:20px; border-radius:12px; margin:20px 0; box-shadow:0 0 10px rgba(0,255,200,0.3); }
-    .btn { display:inline-block; background:#00ffcc; color:#000; padding:10px 20px; margin:10px 5px; border-radius:8px; text-decoration:none; font-weight:bold; }
+    nav a { color:#0ff0cc; margin:15px; text-decoration:none; font-weight:bold; }
+    .card { background:#1a1a1a; padding:20px; border-radius:12px; margin:20px 0; box-shadow:0 10px 20px rgba(0,255,200,0.3); transition: all 0.5s ease; }
+    .btn { display:inline-block; background:#0ff0cc; color:#000; padding:10px 20px; margin:10px 5px; border-radius:8px; text-decoration:none; font-weight:bold; }
     footer { background:#111; text-align:center; padding:15px; margin-top:30px; color:#777; }
+    ul li { cursor:pointer; padding:5px; }
+    ul li:hover { color:#0ff0cc; }
+
+    /* 🔥 Efecto de resaltado */
+    .highlight {
+      box-shadow:0 0 25px #00ffcc, 0 0 50px #00ffcc;
+      border:2px solid #00ffcc;
+    }
   </style>
 </head>
 <body>
@@ -20,54 +28,99 @@
     <h1>⚡ GameCharge Argentina ⚡</h1>
     <p>Recargas rápidas y seguras para tus juegos favoritos</p>
   </header>
+
   <nav>
-    <a href="#juegos">Juegos</a>
-    <a href="#precios">Precios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>  <section id="juegos">
-    <h2>🎮 Juegos Disponibles</h2>
+    <a href="#juegos">🎮 Juegos</a>
+    <a href="#precios">💲 Precios</a>
+    <a href="#contacto">📞 Contacto</a>
+  </nav>
+
+  <section id="juegos">
     <div class="card">
+      <h2>🎮 Juegos Disponibles</h2>
       <ul>
-        <li>Free Fire</li>
-        <li>Roblox</li>
-        <li>Fortnite</li>
-        <li>Call of Duty Mobile</li>
-        <li>Clash Royale</li>
-        <li>blood Strike</li>
-        <!-- Menú de selección de juego -->
-<select id="selectorJuego">
-  <option value="">-- Seleccioná un juego --</option>
-  <option value="gta">GTA V</option>
-  <option value="fifa">FIFA 24</option>
-  <option value="cod">Call of Duty</option>
-</select>
+        <li id="freefire">Free Fire</li>
+        <li id="roblox">Roblox</li>
+        <li id="fortnite">Fortnite</li>
+        <li id="cod">Call of Duty Mobile</li>
+        <li id="clash">Clash Royale</li>
+        <li id="blood">Blood Strike</li>
       </ul>
     </div>
-  </section>  <section id="precios">
+  </section>
+
+  <section id="precios">
     <h2>💲 Precios</h2>
-    <div class="card">
-      <p>Diamantes Free Fire: 
-        110💎=$1400 ARS
-        310💎=$4100ARS
-      </p>
-      <p>110💎:$1400 ARS</p>
-      <p>341💎:$4550 ARS</p>
-      <p>572💎:$7100 ARS</p>
-      <p>1166💎:$14200 ARS</p>
-      <p>2398💎:$28100 ARS</p>
-      <p>6160💎:$56000 ARS</p>
-      <p>Robux: desde $700 ARS</p>
-      <p>PaVos Fortnite: desde $1000 ARS</p>
+    
+    <!-- Free Fire -->
+    <div id="precios-freefire" class="card">
+      <h3>Diamantes Free Fire</h3>
+      <p>110💎 = $1400 ARS</p>
+      <p>310💎 = $4100 ARS</p>
+      <p>520💎 = $6700 ARS</p>
+      <p>1060💎 = $12400 ARS</p>
+      <p>2180💎 = $24500 ARS</p>
+      <p>5600💎 = $63000 ARS</p>
     </div>
-  </section>  <section id="contacto">
-    <h2>📞 Contacto</h2>
+
+    <!-- Fortnite -->
+    <div id="precios-fortnite" class="card">
+      <h3>Fortnite</h3>
+      <p>Desde $1000 ARS</p>
+    </div>
+
+    <!-- Roblox -->
+    <div id="precios-roblox" class="card">
+      <h3>Roblox</h3>
+      <p>(Aquí podés poner los Robux y precios)</p>
+    </div>
+
+    <!-- COD Mobile -->
+    <div id="precios-cod" class="card">
+      <h3>Call of Duty Mobile</h3>
+      <p>(Aquí agregás los CP y precios)</p>
+    </div>
+
+    <!-- Clash Royale -->
+    <div id="precios-clash" class="card">
+      <h3>Clash Royale</h3>
+      <p>(Aquí agregás precios de gemas u ofertas)</p>
+    </div>
+
+    <!-- Blood Strike -->
+    <div id="precios-blood" class="card">
+      <h3>Blood Strike</h3>
+      <p>(Aquí ponés los precios correspondientes)</p>
+    </div>
+  </section>
+
+  <section id="contacto">
     <div class="card">
+      <h2>📞 Contacto</h2>
       <p>Hacé tu pedido directo por WhatsApp o pagá con MercadoPago:</p>
-      <a class="btn" href="https://wa.me/5492604091846" target="_blank">WhatsApp</a>
+      <a class="btn" href="https://wa.me/5492604931485" target="_blank">WhatsApp</a>
       <a class="btn" href="https://www.mercadopago.com.ar/" target="_blank">Pagar con MercadoPago</a>
     </div>
-  </section>  <footer>
+  </section>
+
+  <footer>
     <p>© 2025 GameCharge Argentina - Recargas rápidas y confiables</p>
   </footer>
+
+  <!-- Script para scroll directo y resaltado -->
+  <script>
+    document.querySelectorAll("#juegos ul li").forEach(item => {
+      item.addEventListener("click", () => {
+        let id = item.id;
+        let destino = document.getElementById("precios-" + id);
+        if (destino) {
+          destino.scrollIntoView({ behavior: "smooth" });
+          // Agregar resaltado
+          destino.classList.add("highlight");
+          setTimeout(() => destino.classList.remove("highlight"), 2000);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
